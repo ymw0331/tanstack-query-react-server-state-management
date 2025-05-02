@@ -8,9 +8,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@shared/*": ["../shared/*"]
+    "paths": { 
+      "@/*": ["src/*"], // source path
+      "@shared/*": ["../shared/*"] // shared path, without ../../
     },
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
