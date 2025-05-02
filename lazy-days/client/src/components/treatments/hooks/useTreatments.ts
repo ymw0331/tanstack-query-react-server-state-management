@@ -19,12 +19,10 @@ export function useTreatments(): Treatment[] {
   const fallback: Treatment[] = []
 
   // TODO: get data from server via useQuery
-  const { data = fallback, isLoading, error } = useQuery({
+  const { data = fallback } = useQuery({
     queryKey: [queryKeys.treatments],
     queryFn: getTreatments,
   })
-
-
 
   return data;
 }

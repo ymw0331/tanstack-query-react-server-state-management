@@ -1,5 +1,7 @@
 import { Spinner, Text } from "@chakra-ui/react";
 import { useIsFetching } from "@tanstack/react-query";
+// add this for ur app for loading
+
 
 export function Loading() {
   // will use React Query `useIsFetching` to determine whether or not to display
