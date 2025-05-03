@@ -24,7 +24,7 @@ export function App() {
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <AuthContextProvider>
-          <Loading /> 
+          <Loading />
           <BrowserRouter>
             <Navbar />
             <Routes>
