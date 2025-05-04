@@ -103,8 +103,10 @@ export function useAppointments() {
     queryKey: [queryKeys.appointments, monthYear.year, monthYear.month],
     queryFn: () => getAppointments(monthYear.year, monthYear.month),
     select: (data) => selectFn(data, showAll),
-
     refetchOnWindowFocus: true,
+    refetchInterval: 60000, // refetch every minute
+    ...commonOptions
+
   });
 
   /** ****************** END 3: useQuery  ******************************* */
