@@ -1,0 +1,11 @@
+{
+  "watch": ["src"],
+  "ext": "js,ts,json",
+  "ignore": [
+    "node_modules",
+    "*.log",
+    "*.test.js",
+    "*.test.ts",
+    "public"
+  ]
+} 

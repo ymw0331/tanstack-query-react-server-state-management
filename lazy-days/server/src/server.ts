@@ -2,6 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { json } from 'express';
 import { expressjwt as jwt } from 'express-jwt';
+import morgan from 'morgan';
 
 import { User as UserType } from '../../shared/types';
 import { createAppointments } from './db-func/appointmentUtils';
@@ -29,6 +30,9 @@ declare global {
 }
 
 const app = express();
+
+// Add morgan logging middleware
+app.use(morgan('dev'));
 
 // CORS for react app, assuming port 3000
 app.use(

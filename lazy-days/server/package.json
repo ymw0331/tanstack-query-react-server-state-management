@@ -5,7 +5,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "start": "node src/index.cjs",
-    "dev": "npm start"
+    "dev": "nodemon src/index.cjs"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.3",
@@ -40,6 +40,8 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
     "prettier": "^2.2.1",
     "source-map-loader": "^3.0.0",
     "ts-node": "^9.1.1",
