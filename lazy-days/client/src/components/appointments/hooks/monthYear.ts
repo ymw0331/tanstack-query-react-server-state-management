@@ -12,7 +12,7 @@ export interface MonthYear {
 
 // for incrementing MonthYear
 export function getUpdatedMonthYear(
-  monthYear: MonthYear,
+  monthYear: MonthYear, // current month year state
   monthIncrement: number,
 ): dayjs.Dayjs {
   // the clone is necessary to prevent mutation
