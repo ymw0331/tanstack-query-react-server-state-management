@@ -11,6 +11,13 @@ import { queryKeys } from "@/react-query/constants";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
+// for useQuery and prefetching
+const commonOptions = {
+  staleTime: 0,
+  gcTime: 300000, //5 minutes (how long to keep data in cache)
+}
+
+
 // for useQuery call
 async function getAppointments(
   year: string,
@@ -65,6 +72,7 @@ export function useAppointments() {
   /** ****************** START 3: useQuery  ***************************** */
   // useQuery call for appointments for the current monthYear
 
+
   // populate data in cache for next month before it is needed
   // TODO: update with useQuery!
   const queryClient = useQueryClient()
@@ -77,6 +85,7 @@ export function useAppointments() {
         nextMonthYear.month,
       ],
       queryFn: () => getAppointments(nextMonthYear.year, nextMonthYear.month),
+      ...commonOptions
     })
   }, [queryClient, monthYear])
 
@@ -93,7 +102,9 @@ export function useAppointments() {
   const { data: appointments = fallback } = useQuery({
     queryKey: [queryKeys.appointments, monthYear.year, monthYear.month],
     queryFn: () => getAppointments(monthYear.year, monthYear.month),
-    select: (data) => selectFn(data, showAll)
+    select: (data) => selectFn(data, showAll),
+
+    refetchOnWindowFocus: true,
   });
 
   /** ****************** END 3: useQuery  ******************************* */
